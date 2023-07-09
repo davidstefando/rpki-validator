@@ -14,3 +14,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [\App\Http\Controllers\WebController::class, 'index']);
+Route::post('/', [\App\Http\Controllers\RoaCheckController::class, 'index'])->name('roaCheck');

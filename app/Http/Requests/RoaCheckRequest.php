@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Cidr;
 use Illuminate\Foundation\Http\FormRequest;
 
 class RoaCheckRequest extends FormRequest
@@ -11,7 +12,7 @@ class RoaCheckRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +23,19 @@ class RoaCheckRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'prefix' => [
+                'required',
+                new Cidr()
+            ],
+            'as' => 'nullable|integer'
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'as.integer' => 'Enter an AS Number without AS prefix e.g 63515',
+            'body.required' => 'A message is required',
         ];
     }
 }
