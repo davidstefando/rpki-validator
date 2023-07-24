@@ -21,7 +21,7 @@ class RoaCheckController extends Controller
         $bgpOriginByAPI = $this->getBgpOriginAndBestMatchPrefix($request->prefix);
         if($bgpOriginByAPI != null){
             $prefix = $bgpOriginByAPI["prefix"];
-            $originAs = $bgpOriginByAPI["originAS"];
+            $originAs = substr($bgpOriginByAPI["originAS"], 2);
         }
 
         // if request including OriginAS use it instead
@@ -44,30 +44,7 @@ class RoaCheckController extends Controller
             'prefix' => $prefix,
             'as' => $originAs,
             'roaValidation' => $roaValidation,
-            'APIStatus' => $this->getAPIStatus()
         ]);
-    }
-
-    private function getAPIStatus()
-    {
-        try{
-            $statusAPI = Http::get("https://rpki.idnic.net/api/v1/status");
-            if($statusAPI->successful()) {
-                $response = $statusAPI->object();
-
-                $rpkiLastUpdate =  Carbon::parse($response->lastUpdateDone)->setTimezone("Asia/Jakarta");
-                return [
-                    'rpkiLastUpdate' => $rpkiLastUpdate->format("Y-m-d H:i:s"),
-                    'rpkiLastUpdateFromNow' => $rpkiLastUpdate->diffForHumans()
-                ];
-            }
-
-            return false;
-
-        } catch (\Exception $exception){
-            Log::error($exception->getMessage() . " On Line " . $exception->getFile() . " " . $exception->getLine());
-            return false;
-        }
     }
 
     private function getBgpOriginAndBestMatchPrefix($prefix)
