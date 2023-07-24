@@ -15,7 +15,8 @@ export default {
                 'light-gray': '#f9fafb',
                 'valid': '#66BB6A',
                 'invalid': '#E63434',
-                gray: colors.gray
+                gray: colors.gray,
+                orange: colors.orange,
             }
         },
     },

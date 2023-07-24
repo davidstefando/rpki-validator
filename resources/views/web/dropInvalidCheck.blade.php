@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-        <div class="flex mt-24 flex-col mx-8 md:mx-0 md:w-2/3 px-8 py-16 border shadow-md rounded-lg items-center">
+        <div class="flex mt-24 flex-col mx-8 md:mx-0 md:w-2/3 px-8 py-16 border shadow-md rounded-lg items-center border-l-8 border-orange-300">
             <h1 class="mt-4 text-3xl font-bold text-idnic-blue">RPKI ROV</h1>
             <h2 class="mt-2 text-xl font-bold text-idnic-blue">Drop BGP Invalid Test</h2>
             <p class="mx-4 mt-2 mb-8 text-idnic-blue text-center">Check if you have filtered Invalid BGP route with RPKI ROV</p>
