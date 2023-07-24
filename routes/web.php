@@ -13,5 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\WebController::class, 'index']);
-Route::post('/', [\App\Http\Controllers\RoaCheckController::class, 'index'])->name('roaCheck');
+Route::get('/', [\App\Http\Controllers\WebController::class, 'index'])->name('rov.index');
+Route::post('/', [\App\Http\Controllers\RoaCheckController::class, 'index'])->name('rov.check');
+
+Route::get('/dropRpkiInvalidCheck', [\App\Http\Controllers\DropInvalidCheckController::class, 'index'])->name('dropRpkiInvalidCheck');

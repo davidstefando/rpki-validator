@@ -12,12 +12,14 @@
     </div>
 
     <div class="w-full flex flex-row justify-center h-14 border-b bg-light-blue">
-        <div class="flex items-center basis-80 italic justify-center border-b-4 cursor-pointer border-idnic-blue font-bold">
-            <img class="mr-2" src="{{ asset('images/roa-icon.png') }}" alt=""> Route Validator
-        </div>
-        <div class="flex items-center basis-80 italic font-light justify-center border-b-4 border-transparent cursor-pointer hover:border-b-4 hover:border-idnic-blue">
+        <a href="{{ route('rov.index') }}" class="flex items-center basis-80 italic justify-center cursor-pointer text-sm
+        @if(Route::is('rov.*')) border-b-4 border-idnic-blue font-bold @else hover:font-bold @endif">
+           <img class="mr-2" src="{{ asset('images/roa-icon.png') }}" alt=""> ROV Check
+        </a>
+        <a href="{{ route('dropRpkiInvalidCheck') }}" class="flex items-center basis-80 italic font-light justify-center cursor-pointer text-sm
+         @if(Route::is('dropRpkiInvalidCheck')) border-b-4 border-idnic-blue font-bold @else hover:font-bold @endif">
             <img class="mr-2" src="{{ asset('images/drop-invalid-icon.png') }}" alt=""> Drop Invalid Test
-        </div>
+        </a>
     </div>
 
     @yield('content')
