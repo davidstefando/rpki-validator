@@ -33,19 +33,19 @@
         </div>
 
         @if($roaValidation["status"] == "valid")
-            <div class="flex items-center justify-center px-6 mt-4 h-20 bg-valid rounded-full">
+            <div class="flex items-center justify-center px-6 mt-4 mb-8 h-20 bg-valid rounded-full">
                 <span class="text-white text-3xl">Valid</span>
             </div>
         @endif
 
         @if($roaValidation["status"] == "not-found")
-            <div class="flex items-center justify-center px-6 mt-4 h-20 bg-idnic-blue rounded-full">
+            <div class="flex items-center justify-center px-6 mt-4 mb-8 h-20 bg-idnic-blue rounded-full">
                 <span class="text-white text-3xl">Not Found</span>
             </div>
         @endif
 
         @if($roaValidation["status"] == "invalid")
-            <div class="flex items-center justify-center px-6 mt-4 h-20 bg-invalid rounded-full">
+            <div class="flex items-center justify-center px-6 mt-4 mb-8 h-20 bg-invalid rounded-full">
                 <span class="text-white text-3xl">Invalid</span>
             </div>
         @endif

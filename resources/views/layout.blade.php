@@ -27,7 +27,7 @@
 
 
 </div>
-<div class="w-full bottom-2 text-center">
+<div class="w-full bottom-2 mb-4 text-center">
     @yield('footer')
 </div>
 </body>
