@@ -17,8 +17,16 @@ class RoaCheckController extends Controller
         $prefix = $request->prefix;
         $originAs = $request->as;
 
+        if(!str_contains($prefix, '/') && str_contains($prefix, ":")){
+            $prefix .= "/128";
+        }
+
+        if(!str_contains($prefix, '/') && !str_contains($prefix, ":")){
+            $prefix .= "/32";
+        }
+
         // first try lookup OriginAS from ROTO API
-        $bgpOriginByAPI = $this->getBgpOriginAndBestMatchPrefix($request->prefix);
+        $bgpOriginByAPI = $this->getBgpOriginAndBestMatchPrefix($prefix);
         if($bgpOriginByAPI != null){
             $prefix = $bgpOriginByAPI["prefix"];
             $originAs = substr($bgpOriginByAPI["originAS"], 2);
