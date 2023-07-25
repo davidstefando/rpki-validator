@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <div class="flex mt-24 mb-24 flex-col mx-8 md:mx-0 md:w-2/3 px-8 py-16 border shadow-md rounded-lg items-center border-l-8 border-l-light-blue">
+    <div class="flex mt-4 md:mt-24 mb-24 flex-col mx-8 md:mx-0 md:w-2/3 px-8 py-16 border shadow-md rounded-lg items-center border-l-8 border-l-light-blue">
     <h1 class="mt-4 text-3xl font-bold text-idnic-blue">RPKI ROV</h1>
     <h2 class="mt-2 text-xl font-bold text-idnic-blue">Route Origin Validation</h2>
     <p class="mx-4 mt-2 text-idnic-blue text-center">Validate your BGP Advertisement with ROA (Route Origin Authorization) Record</p>
