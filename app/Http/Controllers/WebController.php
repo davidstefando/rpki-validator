@@ -9,8 +9,11 @@ use Illuminate\Support\Facades\Log;
 
 class WebController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('web.home');
+        return view('web.home',
+        [
+            'redirectLink' => $request->has('redirect')
+        ]);
     }
 }

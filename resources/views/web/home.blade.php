@@ -54,6 +54,13 @@
             </div>
         @endif
     @endisset
+
+        @if($redirectLink)
+            <div class="flex flex-col md:basis-1/3">
+                <p class="text-white">.</p>
+                <a href="https://event.idnic.net/series-list/amm-5?pop-up=false" class="px-10 py-2 md:mt-2 bg-valid text-white rounded-md">Kembali Ke Laman Pendaftaran Rangkaian Acara IDNIC AMM#5</a>
+            </div>
+        @endif
     </div>
 @endsection
 
